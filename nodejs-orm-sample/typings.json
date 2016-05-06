@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-orm-sample",
+  "version": false,
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "bluebird": "registry:dt/bluebird#2.0.0+20160209044412",
+    "change-case": "registry:dt/change-case#0.0.0+20151116200427",
+    "lodash": "registry:dt/lodash#3.10.0+20160314033737",
+    "node": "registry:dt/node#4.0.0+20160311162451",
+    "sequelize": "registry:dt/sequelize#3.4.1+20160312135039",
+    "underscore.string": "registry:dt/underscore.string#0.0.0+20160127111130",
+    "validator": "registry:dt/validator#4.5.1+20160124232055"
+  }
+}
