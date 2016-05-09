@@ -8,8 +8,7 @@
 ## Instructions
 
 * Clone the following repository: https://github.com/keunlee/pgsql-sample-data.git
-* Once cloned, from the command line, change directories to the "employees" directory. Inside of that directory, you
-will see all the necessary scripts for creating the sample "employee" database.
+* Once cloned, from the command line, change directories to the "employees" directory. Inside of that directory, you will see all the necessary scripts for creating the sample "employee" database.
 * Execute the following commands at the commandline prompt:
     * Create the "employees" database:
 
