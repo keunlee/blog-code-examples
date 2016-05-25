@@ -1,9 +1,13 @@
 {
   "name": "nodejs-orm-sample",
   "version": false,
+  "resolution": {
+    "main": "typings/main",
+    "browser": "typings/browser"
+  },
   "dependencies": {},
   "devDependencies": {},
-  "globalDependencies": {
+  "ambientDependencies": {
     "bluebird": "registry:dt/bluebird#2.0.0+20160209044412",
     "change-case": "registry:dt/change-case#0.0.0+20151116200427",
     "lodash": "registry:dt/lodash#3.10.0+20160314033737",
