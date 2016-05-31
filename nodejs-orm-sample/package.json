@@ -2,20 +2,12 @@
   "name": "nodejs-orm-sample",
   "version": "1.0.0",
   "description": "",
-  "databaseConfig": [
-    {
-      "dialect": "postgres",
-      "database": "employees",
-      "username": "dbuser",
-      "password": "password"
-    },
-    {
-      "dialect": "mysql",
-      "database": "employees",
-      "username": "dbuser",
-      "password": "password"
-    }
-  ],
+  "databaseConfig": {
+    "dialect": "postgres",
+    "database": "employees",
+    "username": "dbuser",
+    "password": "password"
+  },
   "scripts": {
     "build": "tsc"
   },
