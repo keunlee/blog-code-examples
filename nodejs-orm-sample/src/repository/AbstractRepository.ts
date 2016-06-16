@@ -26,16 +26,27 @@ export abstract class AbstractRepository<TInstance, TAttributes> {
 
     /**
      *
+     * @param options
      * @returns {Promise<TInstance[]>}
      */
-    public findAll() : Promise<TInstance[]> {
-        return this.model.findAll();
+    public findAll( options? : FindOptions ) : Promise<TInstance[]> {
+        return this.model.findAll(options);
     }
-    
+
+    /**
+     *
+     * @param options
+     * @returns {Promise<TInstance>}
+     */
     public findOne(  options? : FindOptions ) : Promise<TInstance> {
         return this.model.findOne(options);
     }
 
+    /**
+     *
+     * @param options
+     * @returns {Promise<number>}
+     */
     public deleteRecord(  options? : DestroyOptions ) : Promise<number> {
         return this.model.destroy(options);
     }
