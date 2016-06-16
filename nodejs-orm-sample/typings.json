@@ -5,8 +5,12 @@
   "devDependencies": {},
   "globalDependencies": {
     "bluebird": "registry:dt/bluebird#2.0.0+20160209044412",
+    "chai": "registry:dt/chai#3.4.0+20160317120654",
     "change-case": "registry:dt/change-case#0.0.0+20151116200427",
     "lodash": "registry:dt/lodash#3.10.0+20160314033737",
+    "mocha": "registry:dt/mocha#2.2.5+20160317120654",
+    "moment": "registry:dt/moment#2.8.0+20160316155526",
+    "moment-node": "registry:dt/moment-node#2.11.1+20160511043338",
     "node": "registry:dt/node#4.0.0+20160311162451",
     "sequelize": "registry:dt/sequelize#3.4.1+20160312135039",
     "underscore.string": "registry:dt/underscore.string#0.0.0+20160127111130",
