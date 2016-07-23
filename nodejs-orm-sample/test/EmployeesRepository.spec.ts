@@ -25,6 +25,8 @@ let employeesRepository : EmployeesRepository = null;
 let employees : EmployeesInstance[] = null;
 
 describe('Employee Repository Test Suit', function () {
+    this.timeout(10000);
+
     before(function (done) {
         let asyncDone = new AsyncDone(done);
 

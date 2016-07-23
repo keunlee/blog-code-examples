@@ -1,6 +1,5 @@
-import sequelize = require('sequelize');
-import {FindOptions} from "sequelize";
-import {DestroyOptions} from "sequelize";
+import * as sequelize from "sequelize";
+import {FindOptions, DestroyOptions} from "sequelize";
 
 export abstract class AbstractRepository<TInstance, TAttributes> {
     protected models = require('../domain/sequelize-models');
