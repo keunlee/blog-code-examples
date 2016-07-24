@@ -1,5 +1,6 @@
 import * as sequelize from "sequelize";
 import {FindOptions, DestroyOptions} from "sequelize";
+import {UpdateOptions} from "sequelize";
 
 export abstract class AbstractRepository<TInstance, TAttributes> {
     protected models = require('../domain/sequelize-models');
@@ -48,5 +49,15 @@ export abstract class AbstractRepository<TInstance, TAttributes> {
      */
     public deleteRecord(  options? : DestroyOptions ) : Promise<number> {
         return this.model.destroy(options);
+    }
+
+    /**
+     *
+     * @param pojo
+     * @param options
+     * @returns {Promise}
+     */
+    public update( pojo : TAttributes, options : UpdateOptions ) : Promise<[number, TInstance[]]> {
+        return this.model.update( pojo, options );
     }
 }

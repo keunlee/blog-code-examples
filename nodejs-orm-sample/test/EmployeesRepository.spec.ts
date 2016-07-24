@@ -7,11 +7,11 @@ import {EmployeesInstance, EmployeesPojo} from "../src/domain/sequelize-types";
 import models = require('../src/domain/sequelize-models');
 let packageJson = require('../package.json');
 
-let AsyncDone = function (fn) {
+let AsyncDone = function(fn) {
     let self = this;
     let called = false;
 
-    this.trigger = function (params) {
+    this.trigger = function(params) {
         if (called) {
             return;
         }
@@ -24,10 +24,10 @@ let AsyncDone = function (fn) {
 let employeesRepository : EmployeesRepository = null;
 let employees : EmployeesInstance[] = null;
 
-describe('Employee Repository Test Suit', function () {
+describe('Employee Repository Test Suit', function() {
     this.timeout(10000);
 
-    before(function (done) {
+    before(function(done) {
         let asyncDone = new AsyncDone(done);
 
         models.initialize(packageJson.databaseConfig.database, packageJson.databaseConfig.username, packageJson.databaseConfig.password, {
@@ -42,7 +42,7 @@ describe('Employee Repository Test Suit', function () {
         asyncDone.trigger();
     });
 
-    it('should verify repository "findAll" operation', function (done) {
+    it('should verify repository "findAll" operation', function(done) {
         let asyncDone = new AsyncDone(done);
 
         employeesRepository.findAll()
@@ -57,7 +57,7 @@ describe('Employee Repository Test Suit', function () {
             });
     });
 
-    it('should verify repository "create" operation', function (done) {
+    it('should verify repository "create" operation', function(done) {
         let asyncDone = new AsyncDone(done);
 
         let newEmp : EmployeesPojo = {
@@ -83,7 +83,7 @@ describe('Employee Repository Test Suit', function () {
             });
     });
 
-    it('should verify repository "findOne" operation', function (done) {
+    it('should verify repository "findOne" operation', function(done) {
         let asyncDone = new AsyncDone(done);
 
         employeesRepository.findOne({where : {emp_no : 999999}})
@@ -97,7 +97,32 @@ describe('Employee Repository Test Suit', function () {
             });
     });
 
-    it('should verify repository "delete" operation', function (done) {
+    it('should verify repository "update" operation', function(done) {
+        let asyncDone = new AsyncDone(done);
+
+        let updateAttributes : any = {
+            first_name : "Jane",
+            last_name : "Brain",
+            gender : "F"
+        };
+
+        employeesRepository.update(updateAttributes, {where : {emp_no : 999999}})
+            .then( ( result : [number, EmployeesPojo[]] ) => {
+                assert.isNotNull( result );
+                return  employeesRepository.findOne({where : {emp_no : 999999}});
+            })
+            .then((result : EmployeesInstance) => {
+                assert.equal( updateAttributes.first_name, result.first_name );
+                assert.equal( updateAttributes.last_name, result.last_name );
+                assert.equal( updateAttributes.gender, result.gender );
+                asyncDone.trigger();
+            })
+            .done((error : any) => {
+                asyncDone.trigger(error);
+            });
+    });
+
+    it('should verify repository "delete" operation', function(done) {
         let asyncDone = new AsyncDone(done);
 
         employeesRepository.deleteRecord({where : {emp_no : 999999}})
